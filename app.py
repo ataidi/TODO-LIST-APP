@@ -18,6 +18,11 @@ def index():
 
     return render_template('index.html')
 
+@app.route('/view')
+def view():
+    my_list=session.query(Todo).all()
+    return render_template('view.html',my_list=my_list)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #4facfe;
+            color: white;
+            padding: 15px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f1f9ff;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .action-btn {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .edit {
+            background: #28a745;
+            color: white;
+        }
+
+        .delete {
+            background: #dc3545;
+            color: white;
+        }
+
+        .edit:hover {
+            background: #218838;
+        }
+
+        .delete:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>My Todo List</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
+        <th>ACTION</th>
+    </tr>
+
+    {% for my_list in my_list %}
+    <tr>
+        <td>{{ my_list.id }}</td>
+        <td>{{ my_list.title }}</td>
+        <td>{{ my_list.description }}</td>
+        <td>
+            <button class="action-btn edit">Edit</button>
+            <button class="action-btn delete">Delete</button>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
